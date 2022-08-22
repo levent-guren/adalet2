@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+   
+   <bean id="kullanici" class="bean.User" >
+     <property name="name" value="Levent" />
+     <property name="surname" value="GÜREN" />
+   </bean>
+   
+   <bean id="kullanici2" class="bean.User" >
+     <property name="name" value="Ali" />
+     <property name="surname" value="UZUN" />
+   </bean>
+
+   <bean id="kullanici3" class="bean.User" >
+	<constructor-arg value="Abdulmuttalip" />
+	<constructor-arg value="Karabasan" />
+   </bean>
+	
+	<bean id="kullanici4" class="bean.User" factory-method="userYarat" />
+ </beans>
