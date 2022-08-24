@@ -1,0 +1,16 @@
+server:
+  port: 9090
+spring:
+  datasource:
+    url: jdbc:h2:file:c:/java/adalet2
+    username:
+    password: 
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+         format_sql: true
+  flyway:
+     enabled: true

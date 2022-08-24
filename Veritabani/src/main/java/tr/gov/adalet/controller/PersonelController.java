@@ -1,11 +1,15 @@
 package tr.gov.adalet.controller;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import tr.gov.adalet.dto.PersonelDTO;
@@ -33,6 +37,24 @@ public class PersonelController {
 				.collect(Collectors.toList());
 	}
 
+	@GetMapping("/personel/{pId}")
+	public PersonelDTO getPersonel(@PathVariable(value = "pId", required = true) int id) {
+		Optional<Personel> personelO = personelService.getPersonel(id);
+		Personel personel = personelO.orElseThrow();
+		return mapper.map(personel, PersonelDTO.class);
+	}
+
+	@GetMapping("/personel")
+	public List<Personel> getPersoneller(String adi) {
+		return personelService.getPersoneller(adi);
+	}
+
+	@PostMapping("/personel")
+	public Personel kaydet(@RequestBody Personel personel) {
+		return personelService.kaydet(personel);
+	}
+
+	@SuppressWarnings("unused")
 	private PersonelDTO cevir(Personel personel) {
 //		PersonelDTO dto = new PersonelDTO();
 //		dto.setAdi(personel.getAdi());

@@ -1,6 +1,7 @@
 package tr.gov.adalet.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,5 +16,18 @@ public class PersonelDAO {
 
 	public List<Personel> getPersoneller() {
 		return personelRepository.findAll();
+	}
+
+	public Optional<Personel> getPersonel(int id) {
+		return personelRepository.findById(id);
+	}
+
+	public List<Personel> getPersoneller(String adi) {
+		return personelRepository.findByAdi(adi);
+	}
+
+	public Personel kaydet(Personel personel) {
+		return personelRepository.save(personel);
+
 	}
 }
