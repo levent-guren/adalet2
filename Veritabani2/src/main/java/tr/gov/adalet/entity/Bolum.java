@@ -17,6 +17,6 @@ public class Bolum {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String adi;
-	@OneToMany(mappedBy = "bolum")
+	@OneToMany(mappedBy = "bolum") // default'u LAZY
 	private List<Personel> personeller;
 }

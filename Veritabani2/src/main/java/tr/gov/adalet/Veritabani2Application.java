@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class Veritabani2Application implements CommandLineRunner {
-	@Value("${server.port}")
+	@Value("#{environment.JAVA_HOME}")
 	private String javaHome;
 
 	public static void main(String[] args) {
